@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/nav_graph_menu"
+        android:icon="@drawable/ic_baseline_fastfood_24"
+        android:title="@string/menu_item_title" />
+    <item
+        android:id="@id/nav_graph_news"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="@string/news_item_title" />
+    <item
+        android:id="@+id/menu_placeholder"
+        android:enabled="false"
+        android:title="" />
+    <item
+        android:id="@id/nav_graph_about"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        android:title="@string/about_item_title" />
+    <item
+        android:id="@id/nav_graph_review"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="@string/review_item_title" />
+</menu>

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AtlantikBistro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="review_item_title">Отзывы</string>
+    <string name="about_item_title">Главная</string>
+    <string name="menu_item_title">Меню</string>
+    <string name="news_item_title">Новости</string>
+    <string name="cart_item_title">Корзина</string>
 </resources>
