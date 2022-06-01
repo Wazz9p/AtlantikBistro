@@ -1,7 +1,6 @@
 package com.wazz9p.atlantikbistro.viewmodel
 
 import androidx.navigation.NavController
-import com.wazz9p.atlantikbistro.R
 import com.wazz9p.core.base.BaseAction
 import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
@@ -28,15 +27,15 @@ class MainFragmentViewModel :
 
     override fun onReduceState(viewAction: Action): ViewState = when (viewAction) {
         is Action.NavigationScreen -> state.copy(
-            isNavigationScreen = true,
+            isNavigationScreen = true
         )
         is Action.FullScreen -> state.copy(
-            isNavigationScreen = false,
+            isNavigationScreen = false
         )
     }
 
     data class ViewState(
-        val isNavigationScreen: Boolean = true,
+        val isNavigationScreen: Boolean = true
     ) : BaseViewState
 
     sealed interface Action : BaseAction {

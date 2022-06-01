@@ -7,4 +7,5 @@
     <string name="menu_item_title">Меню</string>
     <string name="news_item_title">Новости</string>
     <string name="cart_item_title">Корзина</string>
+    <string name="menu_search_hint">Поиск</string>
 </resources>
