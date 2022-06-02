@@ -1,6 +1,6 @@
-package com.wazz9p.data.network.api
+package com.wazz9p.data.network.menu.api
 
-import com.wazz9p.data.network.response.CategoryResponse
+import com.wazz9p.data.network.menu.response.CategoryResponse
 import retrofit2.http.GET
 
 interface CategoryApi {

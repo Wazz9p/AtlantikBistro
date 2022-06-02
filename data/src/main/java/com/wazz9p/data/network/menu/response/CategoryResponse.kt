@@ -1,4 +1,4 @@
-package com.wazz9p.data.network.response
+package com.wazz9p.data.network.menu.response
 
 import com.google.gson.annotations.SerializedName
 
