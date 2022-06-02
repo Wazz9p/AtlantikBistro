@@ -5,8 +5,11 @@ import com.wazz9p.data.network.menu.CategoryRemoteDataSource
 import com.wazz9p.domain.model.menu.Category
 import com.wazz9p.domain.repository.menu.CategoryRepository
 import java.net.UnknownHostException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class CategoryRepositoryImpl(
+@Singleton
+class CategoryRepositoryImpl @Inject constructor(
     private val remoteDataSource: CategoryRemoteDataSource,
     private val localDataSource: CategoryLocalDataSource
 ) : CategoryRepository {

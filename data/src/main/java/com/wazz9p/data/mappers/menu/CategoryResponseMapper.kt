@@ -7,7 +7,7 @@ import com.wazz9p.domain.model.menu.Category
 class CategoryResponseMapper : Mapper<CategoryResponse, Category> {
 
     override fun mapToDomain(data: CategoryResponse): Category {
-        return Category(id = data.id, name = data.name)
+        return Category(id = data.id, name = data.name, image = data.imageRef)
     }
 
     override fun mapToData(data: Category): CategoryResponse? {

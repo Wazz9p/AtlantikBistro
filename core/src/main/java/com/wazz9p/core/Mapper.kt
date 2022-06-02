@@ -4,5 +4,5 @@ interface Mapper<S, R> {
 
     fun mapToDomain(data: S): R
 
-    fun mapToData(data: R): S
+    fun mapToData(data: R): S?
 }

@@ -3,8 +3,9 @@ package com.wazz9p.data.database.menu
 import com.wazz9p.data.database.menu.dao.CategoryDao
 import com.wazz9p.data.mappers.menu.CategoryEntityMapper
 import com.wazz9p.domain.model.menu.Category
+import javax.inject.Inject
 
-class CategoryRoomDataSource(
+class CategoryRoomDataSource @Inject constructor(
     private val categoryDao: CategoryDao,
     private val mapper: CategoryEntityMapper
 ) : CategoryLocalDataSource {

@@ -1,4 +1,4 @@
-package com.wazz9p.atlantikbistro.viewmodel.menu
+package com.wazz9p.atlantikbistro.viewModel.menu
 
 import androidx.lifecycle.viewModelScope
 import com.wazz9p.core.base.BaseAction
