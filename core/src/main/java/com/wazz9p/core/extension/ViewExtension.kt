@@ -5,6 +5,7 @@ import android.view.View.*
 import android.view.ViewGroup
 import androidx.core.view.forEach
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
 
 
 var View.visible
@@ -22,6 +23,17 @@ fun BottomNavigationView.disableTooltip() {
                 return@setOnLongClickListener true
             }
             it.isHapticFeedbackEnabled = false
+        }
+    }
+}
+
+fun TabLayout.disableTooltip() {
+    val content: View = getChildAt(0)
+    if (content is ViewGroup) {
+        content.forEach {
+            it.setOnLongClickListener {
+                return@setOnLongClickListener true
+            }
         }
     }
 }
