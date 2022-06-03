@@ -1,4 +1,4 @@
-package com.wazz9p.atlantikbistro.viewModel.menu
+package com.wazz9p.atlantikbistro.screens.category.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

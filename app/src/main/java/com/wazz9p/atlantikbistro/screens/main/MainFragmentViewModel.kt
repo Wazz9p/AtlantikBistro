@@ -1,4 +1,4 @@
-package com.wazz9p.atlantikbistro.viewModel
+package com.wazz9p.atlantikbistro.screens.main
 
 import androidx.navigation.NavController
 import com.wazz9p.core.base.BaseAction

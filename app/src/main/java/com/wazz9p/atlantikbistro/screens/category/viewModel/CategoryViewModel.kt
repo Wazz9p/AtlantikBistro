@@ -1,4 +1,4 @@
-package com.wazz9p.atlantikbistro.viewModel.menu
+package com.wazz9p.atlantikbistro.screens.category.viewModel
 
 import androidx.lifecycle.viewModelScope
 import com.wazz9p.core.base.BaseAction
@@ -8,8 +8,9 @@ import com.wazz9p.domain.model.menu.Category
 import com.wazz9p.domain.usecase.menu.FetchCategory
 import com.wazz9p.core.base.Result
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CategoryViewModel(private val fetchCategory: FetchCategory) :
+class CategoryViewModel @Inject constructor(private val fetchCategory: FetchCategory) :
     BaseViewModel<CategoryViewModel.ViewState, CategoryViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {
