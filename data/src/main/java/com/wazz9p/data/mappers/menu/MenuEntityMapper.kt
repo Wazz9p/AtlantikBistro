@@ -16,7 +16,7 @@ class MenuEntityMapper : Mapper<MenuEntity, Dish> {
         categoryId = data.categoryId
     )
 
-    override fun mapToData(data: Dish): MenuEntity? = MenuEntity(
+    override fun mapToData(data: Dish): MenuEntity = MenuEntity(
         id = data.id,
         name = data.name,
         imageRef = data.image,
