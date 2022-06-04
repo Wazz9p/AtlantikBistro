@@ -48,7 +48,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
             binding.categoryTabLayout,
             binding.categoryViewPager
         ) { tab, position ->
-
+            tab.text = adapter?.categoryList?.get(position)?.name
         }.attach()
         binding.categoryTabLayout.disableTooltip()
     }
