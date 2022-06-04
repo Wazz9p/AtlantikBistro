@@ -13,4 +13,6 @@ interface BindsRepositoryModule {
 
     @Binds
     fun bindCategoryRepository(repository: CategoryRepositoryImpl): CategoryRepository
+
+
 }

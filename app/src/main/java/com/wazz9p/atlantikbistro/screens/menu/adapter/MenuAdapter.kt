@@ -50,7 +50,7 @@ class MenuAdapter : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
 
         fun bind(dish: Dish) {
-            val dishPrice = dish.price.toString() + " р"
+            val dishPrice = dish.price + " р"
             itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(dish) }
             binding.dishNameItemTextView.text = dish.name
             url = dish.image

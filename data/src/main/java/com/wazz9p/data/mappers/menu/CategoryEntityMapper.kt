@@ -7,10 +7,10 @@ import com.wazz9p.domain.model.menu.Category
 class CategoryEntityMapper : Mapper<CategoryEntity, Category> {
 
     override fun mapToDomain(data: CategoryEntity): Category {
-        return Category(id = data.id, name = data.name, image = data.imageRef)
+        return Category(id = data.id, name = data.name, image = null)
     }
 
     override fun mapToData(data: Category): CategoryEntity {
-        return CategoryEntity(id = data.id, name = data.name, imageRef = data.image)
+        return CategoryEntity(id = data.id, name = data.name)
     }
 }

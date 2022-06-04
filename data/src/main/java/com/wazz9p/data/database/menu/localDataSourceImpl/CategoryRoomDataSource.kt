@@ -1,5 +1,6 @@
-package com.wazz9p.data.database.menu
+package com.wazz9p.data.database.menu.localDataSourceImpl
 
+import com.wazz9p.data.database.menu.CategoryLocalDataSource
 import com.wazz9p.data.database.menu.dao.CategoryDao
 import com.wazz9p.data.mappers.menu.CategoryEntityMapper
 import com.wazz9p.domain.model.menu.Category
