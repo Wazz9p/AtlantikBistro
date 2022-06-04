@@ -21,7 +21,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     private val binding: FragmentCategoryBinding by viewBinding()
     private val viewModel: CategoryViewModel by viewModels()
 
-
     private val stateObserver = Observer<CategoryViewModel.ViewState> {
         adapter?.categoryList = it.categoryList
     }
