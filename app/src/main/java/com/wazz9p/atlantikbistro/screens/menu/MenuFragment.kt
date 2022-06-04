@@ -64,7 +64,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             adapter?.menu = listOf()
             MainScope().launch {
                 viewModel.loadData()
-                binding.menuSwipeLayout.isRefreshing = false
             }
         }
     }
