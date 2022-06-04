@@ -1,4 +1,4 @@
-package com.wazz9p.atlantikbistro.ui
+package com.wazz9p.atlantikbistro.screens.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,12 +11,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.databinding.FragmentMainBinding
-import com.wazz9p.atlantikbistro.viewmodel.MainFragmentViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.disableTooltip
 import com.wazz9p.core.extension.observe
 import com.wazz9p.core.extension.visible
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val binding: FragmentMainBinding by viewBinding()
