@@ -20,7 +20,7 @@ internal class MenuViewModel @Inject constructor(
         getMenu()
     }
 
-    private val categoryId: Int = 1
+    private var categoryId: Int = 1
 
     private fun getMenu() {
         viewModelScope.launch {
@@ -38,6 +38,10 @@ internal class MenuViewModel @Inject constructor(
                 sendAction(action)
             }
         }
+    }
+
+    fun getCategory(id:Int){
+        categoryId = id
     }
 
     override fun onReduceState(viewAction: Action): ViewState = when (viewAction) {

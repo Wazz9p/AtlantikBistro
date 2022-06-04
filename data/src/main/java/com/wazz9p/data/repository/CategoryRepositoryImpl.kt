@@ -15,7 +15,7 @@ class CategoryRepositoryImpl @Inject constructor(
 ) : CategoryRepository {
 
     override suspend fun getCategories(): List<Category> {
-        return try {
+       return try {
             val response = remoteDataSource.getCategories()
             localDataSource.saveCategories(response)
             response

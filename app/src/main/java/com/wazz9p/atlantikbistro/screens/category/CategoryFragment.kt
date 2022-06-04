@@ -13,6 +13,7 @@ import com.wazz9p.atlantikbistro.screens.category.viewModel.CategoryViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.disableTooltip
 import com.wazz9p.core.extension.observe
+import com.wazz9p.core.extension.visible
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
