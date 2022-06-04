@@ -21,12 +21,13 @@ class DatabaseModule {
         app,
         AppDatabase::class.java,
         "bistro_db"
-    ).build()
+    ).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides
     fun provideCategoryDao(db: AppDatabase) = db.categories()
 
+    @Singleton
     @Provides
-    fun provideCategoryEntityMapper(): CategoryEntityMapper = CategoryEntityMapper()
+    fun provideMenuDao(db: AppDatabase) = db.menu()
 }

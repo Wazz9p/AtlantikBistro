@@ -12,7 +12,7 @@ import com.wazz9p.data.database.menu.entities.MenuEntity
         CategoryEntity::class,
         MenuEntity::class
     ],
-    version = 1, exportSchema = false
+    version = 2, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
