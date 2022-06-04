@@ -1,6 +1,5 @@
 package com.wazz9p.atlantikbistro.screens.category
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -9,12 +8,14 @@ import androidx.lifecycle.Observer
 import com.google.android.material.tabs.TabLayoutMediator
 import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.screens.category.adapter.CategoryViewPagerAdapter
-import com.wazz9p.atlantikbistro.appComponent
 import com.wazz9p.atlantikbistro.databinding.FragmentCategoryBinding
 import com.wazz9p.atlantikbistro.screens.category.viewModel.CategoryViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.disableTooltip
+import com.wazz9p.core.extension.observe
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CategoryFragment : Fragment(R.layout.fragment_category) {
 
     private val binding: FragmentCategoryBinding by viewBinding()
@@ -25,10 +26,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
         adapter?.categoryList = it.categoryList
     }
 
-    override fun onAttach(context: Context) {
-        context.appComponent.inject(this)
-        super.onAttach(context)
-    }
 
     private var adapter: CategoryViewPagerAdapter? = null
 
@@ -37,6 +34,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
         setupAdapter()
         initTabs()
+        observe(viewModel.stateLiveData, stateObserver)
         viewModel.loadData()
     }
 
@@ -48,10 +46,10 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     private fun initTabs() {
         TabLayoutMediator(
             binding.categoryTabLayout,
-           binding.categoryViewPager
+            binding.categoryViewPager
         ) { tab, position ->
 
         }.attach()
-       binding.categoryTabLayout.disableTooltip()
+        binding.categoryTabLayout.disableTooltip()
     }
 }

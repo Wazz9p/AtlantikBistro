@@ -7,9 +7,11 @@ import com.wazz9p.core.base.BaseViewState
 import com.wazz9p.domain.model.menu.Category
 import com.wazz9p.domain.usecase.menu.FetchCategory
 import com.wazz9p.core.base.Result
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class CategoryViewModel @Inject constructor(private val fetchCategory: FetchCategory) :
     BaseViewModel<CategoryViewModel.ViewState, CategoryViewModel.Action>(ViewState()) {
 

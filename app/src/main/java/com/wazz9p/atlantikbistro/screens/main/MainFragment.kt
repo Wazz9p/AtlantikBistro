@@ -15,7 +15,9 @@ import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.disableTooltip
 import com.wazz9p.core.extension.observe
 import com.wazz9p.core.extension.visible
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val binding: FragmentMainBinding by viewBinding()

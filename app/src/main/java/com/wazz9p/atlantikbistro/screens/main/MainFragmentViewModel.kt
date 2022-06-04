@@ -4,8 +4,11 @@ import androidx.navigation.NavController
 import com.wazz9p.core.base.BaseAction
 import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainFragmentViewModel :
+@HiltViewModel
+class MainFragmentViewModel @Inject constructor() :
     BaseViewModel<MainFragmentViewModel.ViewState, MainFragmentViewModel.Action>(ViewState()) {
 
     companion object {
