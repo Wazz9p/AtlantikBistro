@@ -1,5 +1,6 @@
 package com.wazz9p.atlantikbistro.screens.category.adapter
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.wazz9p.atlantikbistro.screens.menu.MenuFragment
@@ -15,6 +16,11 @@ class CategoryViewPagerAdapter(fragment: Fragment) :
 
     override fun getItemCount(): Int = categoryList.size
 
-    override fun createFragment(position: Int): Fragment = MenuFragment()
-
+    override fun createFragment(position: Int): Fragment {
+        val fragment = MenuFragment()
+        val bundle = Bundle()
+        bundle.putInt("categoryId", position + 1)
+        fragment.arguments = bundle
+        return fragment
+    }
 }

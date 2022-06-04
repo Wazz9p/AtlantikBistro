@@ -9,5 +9,10 @@
         android:id="@+id/categoryFragment"
         android:name="com.wazz9p.atlantikbistro.screens.category.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category"/>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.wazz9p.atlantikbistro.screens.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
 </navigation>
