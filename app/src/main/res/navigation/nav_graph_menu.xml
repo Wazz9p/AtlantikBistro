@@ -17,16 +17,16 @@
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/actionMenuFragmentToDishDetailFragment"
-            app:destination="@id/dishDetailFragment">
-            <argument
-                android:name="dishId"
-                android:defaultValue="0"
-                app:argType="integer" />
-        </action>
+            app:destination="@id/dishDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/dishDetailFragment"
         android:name="com.wazz9p.atlantikbistro.screens.dish.DishDetailFragment"
         android:label="fragment_dish_detail"
-        tools:layout="@layout/fragment_dish_detail" />
+        tools:layout="@layout/fragment_dish_detail">
+        <argument
+            android:name="dishId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
 </navigation>
