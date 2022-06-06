@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.databinding.FragmentMainBinding
 import com.wazz9p.atlantikbistro.databinding.FragmentMenuBinding
@@ -49,7 +50,11 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         setupRefreshAdapter()
 
         adapter?.setOnDebouncedClickListener {
-
+            findNavController().navigate(
+                MenuFragmentDirections.actionMenuFragmentToDishDetailFragment(
+                    dishId = it.id
+                )
+            )
         }
 
         observe(viewModel.stateLiveData, stateObserver)

@@ -24,7 +24,7 @@ internal class MenuViewModel @Inject constructor(
 
     private fun getMenu() {
         viewModelScope.launch {
-            fetchMenuUseCase.execute(categoryId).also { result ->
+            fetchMenuUseCase.execute(categoryId).also { result: Result<List<Dish>> ->
                 val action = when (result) {
                     is Result.Success -> {
                         if (result.data.isEmpty()) {
