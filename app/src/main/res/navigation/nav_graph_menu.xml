@@ -9,10 +9,24 @@
         android:id="@+id/categoryFragment"
         android:name="com.wazz9p.atlantikbistro.screens.category.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category"/>
+        tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.wazz9p.atlantikbistro.screens.menu.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/actionMenuFragmentToDishDetailFragment"
+            app:destination="@id/dishDetailFragment">
+            <argument
+                android:name="dishId"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/dishDetailFragment"
+        android:name="com.wazz9p.atlantikbistro.screens.dish.DishDetailFragment"
+        android:label="fragment_dish_detail"
+        tools:layout="@layout/fragment_dish_detail" />
 </navigation>

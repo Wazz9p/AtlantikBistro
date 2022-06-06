@@ -48,6 +48,10 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         setupAdapter()
         setupRefreshAdapter()
 
+        adapter?.setOnDebouncedClickListener {
+
+        }
+
         observe(viewModel.stateLiveData, stateObserver)
         viewModel.getCategory(currentCategory)
         viewModel.loadData()
