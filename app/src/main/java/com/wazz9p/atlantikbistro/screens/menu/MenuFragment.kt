@@ -7,9 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.wazz9p.atlantikbistro.R
-import com.wazz9p.atlantikbistro.databinding.FragmentMainBinding
 import com.wazz9p.atlantikbistro.databinding.FragmentMenuBinding
-import com.wazz9p.atlantikbistro.screens.category.viewModel.CategoryViewModel
+import com.wazz9p.atlantikbistro.screens.category.CategoryFragmentDirections
 import com.wazz9p.atlantikbistro.screens.menu.adapter.MenuAdapter
 import com.wazz9p.atlantikbistro.screens.menu.viewModel.MenuViewModel
 import com.wazz9p.core.delegate.viewBinding
@@ -49,27 +48,31 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         setupAdapter()
         setupRefreshAdapter()
 
-        adapter?.setOnDebouncedClickListener {
-            findNavController().navigate(
-                MenuFragmentDirections.actionMenuFragmentToDishDetailFragment(
-                    dishId = it.id
-                )
-            )
-        }
-
         observe(viewModel.stateLiveData, stateObserver)
         viewModel.getCategory(currentCategory)
         viewModel.loadData()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        adapter = null
+    }
 
     private fun setupAdapter() {
         adapter = MenuAdapter()
+        adapter?.setOnDebouncedClickListener {
+            findNavController().navigate(
+                CategoryFragmentDirections.actionCategoryFragmentToDishDetailFragment(
+                    it.id
+                )
+            )
+        }
         binding.menuRecyclerView.adapter = adapter
     }
 
     private fun setupRefreshAdapter() {
         binding.menuSwipeLayout.setOnRefreshListener {
+
             adapter?.menu = listOf()
             MainScope().launch {
                 viewModel.loadData()

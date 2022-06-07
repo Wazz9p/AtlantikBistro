@@ -40,11 +40,6 @@ internal class MenuViewModel @Inject constructor(
         }
     }
 
-    fun getCategory(id: Int) {
-        categoryId = id
-    }
-
-
     override fun onReduceState(viewAction: Action): ViewState = when (viewAction) {
         is Action.MenuLoadingFailure -> state.copy(
             isLoading = false,
@@ -56,6 +51,10 @@ internal class MenuViewModel @Inject constructor(
             isError = false,
             menu = viewAction.menu
         )
+    }
+
+    fun getCategory(id: Int) {
+        categoryId = id
     }
 
     internal data class ViewState(

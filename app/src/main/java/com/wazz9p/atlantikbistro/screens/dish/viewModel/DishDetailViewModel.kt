@@ -16,7 +16,7 @@ internal class DishDetailViewModel @Inject constructor(
     private val fetchDish: FetchDish
 ) : BaseViewModel<DishDetailViewModel.ViewState, DishDetailViewModel.Action>(ViewState()) {
 
-    private var dishId: Int = 0
+    private var dishId: Int = 1
 
     override fun onLoadData() {
         getDish(dishId)
@@ -26,7 +26,7 @@ internal class DishDetailViewModel @Inject constructor(
         viewModelScope.launch {
             fetchDish.execute(id).also { result: Result<Dish> ->
                 val action = when (result) {
-                    is Result.Success -> Action.DishLoadingSuccess(result.data)
+                    is Result.Success -> Action.DishLoadingSuccess(listOf(result.data))
                     is Result.Error -> Action.DishLoadingFailure
                 }
                 sendAction(action)
@@ -47,34 +47,18 @@ internal class DishDetailViewModel @Inject constructor(
         is Action.DishLoadingFailure -> state.copy(
             isLoading = false,
             isError = true,
-            dish = Dish(
-                id = 0,
-                name = "",
-                image = null,
-                price = "",
-                weight = "",
-                description = null,
-                categoryId = 1
-            )
+            dish = listOf()
         )
     }
 
     internal data class ViewState(
         val isLoading: Boolean = true,
         val isError: Boolean = false,
-        val dish: Dish = Dish(
-            id = 0,
-            name = "",
-            image = null,
-            price = "",
-            weight = "",
-            description = null,
-            categoryId = 1
-        )
+        val dish: List<Dish> = listOf()
     ) : BaseViewState
 
     internal sealed interface Action : BaseAction {
-        class DishLoadingSuccess(val dish: Dish) : Action
+        class DishLoadingSuccess(val dish: List<Dish>) : Action
         object DishLoadingFailure : Action
     }
 }

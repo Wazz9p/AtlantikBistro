@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
 
+
     private val binding: FragmentMainBinding by viewBinding()
     private val viewModel: MainFragmentViewModel by viewModels()
 
