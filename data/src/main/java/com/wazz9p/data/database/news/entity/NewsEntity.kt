@@ -1,8 +1,8 @@
-package com.wazz9p.data.database.menu.entities
+package com.wazz9p.data.database.news.entity
 
 import androidx.room.Entity
 
-@Entity
+@Entity(tableName = "news")
 data class NewsEntity(
     val id: Int,
     val title: String,
