@@ -63,7 +63,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         adapter?.setOnDebouncedClickListener {
             findNavController().navigate(
                 CategoryFragmentDirections.actionCategoryFragmentToDishDetailFragment(
-                    it.id
+                    dishId = it.id
                 )
             )
         }
