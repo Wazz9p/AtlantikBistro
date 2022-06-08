@@ -24,7 +24,7 @@ internal class MenuViewModel @Inject constructor(
 
     private fun getMenu() {
         viewModelScope.launch {
-            fetchMenuUseCase.execute(categoryId).also { result ->
+            fetchMenuUseCase.execute(categoryId).also { result: Result<List<Dish>> ->
                 val action = when (result) {
                     is Result.Success -> {
                         if (result.data.isEmpty()) {
@@ -40,10 +40,6 @@ internal class MenuViewModel @Inject constructor(
         }
     }
 
-    fun getCategory(id:Int){
-        categoryId = id
-    }
-
     override fun onReduceState(viewAction: Action): ViewState = when (viewAction) {
         is Action.MenuLoadingFailure -> state.copy(
             isLoading = false,
@@ -55,6 +51,10 @@ internal class MenuViewModel @Inject constructor(
             isError = false,
             menu = viewAction.menu
         )
+    }
+
+    fun getCategory(id: Int) {
+        categoryId = id
     }
 
     internal data class ViewState(

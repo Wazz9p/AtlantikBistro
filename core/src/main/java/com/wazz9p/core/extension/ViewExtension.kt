@@ -4,6 +4,7 @@ import android.os.SystemClock
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.view.forEach
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
@@ -15,6 +16,49 @@ fun View.setOnDebouncedClickListener(action: () -> Unit) {
     setOnClickListener {
         actionDebouncer.notifyAction()
     }
+}
+
+fun View.removeOnDebouncedClickListener() {
+    setOnClickListener(null)
+    isClickable = false
+}
+
+fun BottomNavigationView.disableTooltip() {
+    val content: View = getChildAt(0)
+    if (content is ViewGroup) {
+        content.forEach {
+            it.setOnLongClickListener {
+                return@setOnLongClickListener true
+            }
+            // disable vibration also
+            it.isHapticFeedbackEnabled = false
+        }
+    }
+}
+
+fun TabLayout.disableTooltip() {
+    val content: View = getChildAt(0)
+    if (content is ViewGroup) {
+        content.forEach {
+            it.setOnLongClickListener {
+                return@setOnLongClickListener true
+            }
+        }
+    }
+}
+
+var View.visible
+    get() = visibility == VISIBLE
+    set(value) {
+        visibility = if (value) VISIBLE else GONE
+    }
+
+fun View.hide(gone: Boolean = true) {
+    visibility = if (gone) GONE else INVISIBLE
+}
+
+fun View.show() {
+    visibility = VISIBLE
 }
 
 private class ActionDebouncer(private val action: () -> Unit) {
@@ -34,41 +78,6 @@ private class ActionDebouncer(private val action: () -> Unit) {
 
         if (actionAllowed) {
             action.invoke()
-        }
-    }
-}
-
-fun View.removeOnDebouncedClickListener() {
-    setOnClickListener(null)
-    isClickable = false
-}
-
-var View.visible
-    get() = visibility == VISIBLE
-    set(value) {
-        visibility = if (value) VISIBLE else GONE
-    }
-
-
-fun BottomNavigationView.disableTooltip() {
-    val content: View = getChildAt(0)
-    if (content is ViewGroup) {
-        content.forEach {
-            it.setOnLongClickListener {
-                return@setOnLongClickListener true
-            }
-            it.isHapticFeedbackEnabled = false
-        }
-    }
-}
-
-fun TabLayout.disableTooltip() {
-    val content: View = getChildAt(0)
-    if (content is ViewGroup) {
-        content.forEach {
-            it.setOnLongClickListener {
-                return@setOnLongClickListener true
-            }
         }
     }
 }

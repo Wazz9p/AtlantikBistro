@@ -1,6 +1,7 @@
 package com.wazz9p.atlantikbistro.screens.main
 
 import androidx.navigation.NavController
+import com.wazz9p.atlantikbistro.R
 import com.wazz9p.core.base.BaseAction
 import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
@@ -13,7 +14,7 @@ class MainFragmentViewModel @Inject constructor() :
 
     companion object {
         val FULLSCREEN_FRAGMENTS_ID: Set<Int> = setOf(
-
+            R.id.dishDetailFragment
         )
     }
 
