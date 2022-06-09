@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.category.CategoryFragment">
 
+
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/categorySearchContainer"
         android:layout_width="0dp"
