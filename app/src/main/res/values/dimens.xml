@@ -10,4 +10,5 @@
     <dimen name="text_size_large">24sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
     <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="item_elevation">3dp</dimen>
 </resources>
