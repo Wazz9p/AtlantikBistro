@@ -8,9 +8,10 @@ import com.wazz9p.atlantikbistro.databinding.ItemMenuListBinding
 import com.wazz9p.core.delegate.observer
 import com.wazz9p.core.extension.setOnDebouncedClickListener
 import com.wazz9p.domain.model.menu.Dish
+import javax.inject.Inject
 
 
-class MenuAdapter : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
+internal class MenuAdapter @Inject constructor() : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
     var menu: List<Dish> by observer(listOf()) {
         notifyDataSetChanged()

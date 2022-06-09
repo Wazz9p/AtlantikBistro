@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainFragmentViewModel @Inject constructor() :
+internal class MainFragmentViewModel @Inject constructor() :
     BaseViewModel<MainFragmentViewModel.ViewState, MainFragmentViewModel.Action>(ViewState()) {
 
     companion object {

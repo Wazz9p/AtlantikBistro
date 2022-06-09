@@ -2,6 +2,7 @@ package com.wazz9p.atlantikbistro.screens.menu
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.util.rangeTo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
