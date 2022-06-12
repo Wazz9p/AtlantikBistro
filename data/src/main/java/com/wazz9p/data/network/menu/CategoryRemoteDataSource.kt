@@ -16,7 +16,7 @@ class CategoryRemoteDataSource @Inject constructor(
         try {
             val data = categoryApi.getCategories()
             return data.map { categoryResponseMapper.mapToDomain(data = it) }
-        } catch (e: UnknownHostException) {
+        } catch (e: Exception) {
             throw e
         }
     }

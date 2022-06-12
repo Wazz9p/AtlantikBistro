@@ -7,10 +7,12 @@ import com.wazz9p.atlantikbistro.screens.menu.MenuFragment
 import com.wazz9p.core.delegate.observer
 import com.wazz9p.domain.model.menu.Category
 
-internal class CategoryViewPagerAdapter(fragment: Fragment) :
-    FragmentStateAdapter(fragment) {
+internal class CategoryViewPagerAdapter(
+    list: List<Category>,
+    fragment: Fragment
+) : FragmentStateAdapter(fragment) {
 
-    var categoryList: List<Category> by observer(listOf()) {
+    var categoryList: List<Category> by observer(list) {
         notifyDataSetChanged()
     }
 
