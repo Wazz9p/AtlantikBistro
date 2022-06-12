@@ -9,7 +9,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/containerDishDetailImage"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/detail_image_size"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_normal"
         android:layout_marginTop="@dimen/margin_small"
         app:cardCornerRadius="@dimen/common_radius"
@@ -17,35 +17,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/dishDetailImage"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:cropToPadding="false"
-            android:scaleType="centerCrop"
-            tools:ignore="ContentDescription" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/dishDetailImage"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/margin_normal"
-        app:layout_constraintBottom_toTopOf="@id/containerAddButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dishDetailTitle">
-
-        <TextView
-            android:id="@+id/dishDetailDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            android:textSize="@dimen/text_size_small"
-            tools:text="@tools:sample/lorem/random" />
-
-    </ScrollView>
 
     <TextView
         android:id="@+id/dishDetailTitle"
@@ -59,10 +50,40 @@
         app:layout_constraintTop_toBottomOf="@id/containerDishDetailImage"
         tools:text="Dish name" />
 
+    <TextView
+        android:id="@+id/dishDetailWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_small"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dishDetailTitle"
+        tools:text="weight" />
+
+    <ScrollView
+        android:id="@+id/dishDetailScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_normal"
+        app:layout_constraintBottom_toTopOf="@id/containerAddButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dishDetailWeight">
+
+        <TextView
+            android:id="@+id/dishDetailDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            tools:text="@tools:sample/lorem/random" />
+
+    </ScrollView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/containerAddButton"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="?actionBarSize"
         android:layout_margin="@dimen/margin_normal"
         app:cardCornerRadius="@dimen/button_container_radius"
         app:layout_constraintBottom_toBottomOf="parent">
