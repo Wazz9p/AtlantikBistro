@@ -51,11 +51,10 @@ internal class MenuAdapter @Inject constructor() : RecyclerView.Adapter<MenuAdap
 
 
         fun bind(dish: Dish) {
-            val dishPrice = dish.price + " р"
             itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(dish) }
             binding.dishNameItemTextView.text = dish.name
             url = dish.image
-            binding.dishPriceItemTextView.text = dishPrice
+            binding.dishPriceItemTextView.text = dish.priceTag
             binding.dishDescriptionItemTextView.text = dish.weight
         }
 
