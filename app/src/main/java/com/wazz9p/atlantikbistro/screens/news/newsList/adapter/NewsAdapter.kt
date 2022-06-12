@@ -8,8 +8,9 @@ import com.wazz9p.atlantikbistro.databinding.ItemNewsListBinding
 import com.wazz9p.core.delegate.observer
 import com.wazz9p.core.extension.setOnDebouncedClickListener
 import com.wazz9p.domain.model.news.News
+import javax.inject.Inject
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+internal class NewsAdapter @Inject constructor(): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     var newsList: List<News> by observer(listOf()) {
         notifyDataSetChanged()

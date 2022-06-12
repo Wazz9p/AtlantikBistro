@@ -1,20 +1,20 @@
-package com.wazz9p.atlantikbistro.screens.news.newsList.viewModel
+package com.wazz9p.atlantikbistro.screens.news.newsDetail
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.wazz9p.core.base.BaseAction
 import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
-import com.wazz9p.core.base.Result
 import com.wazz9p.domain.model.news.News
-import com.wazz9p.domain.usecase.news.FetchNewsList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-internal class NewsViewModel @Inject constructor(
-    private val fetchNewsList: FetchNewsList
-) : BaseViewModel<NewsViewModel.ViewState, NewsViewModel.Action>(ViewState()) {
+internal class NewsDetailViewModel @Inject constructor(
+    private val savedState: SavedStateHandle
+) :
+    BaseViewModel<NewsDetailViewModel.ViewState, NewsDetailViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {
         getNews()
@@ -22,16 +22,10 @@ internal class NewsViewModel @Inject constructor(
 
     private fun getNews() {
         viewModelScope.launch {
-            fetchNewsList.execute().also { result: Result<List<News>> ->
-                val action = when (result) {
-                    is Result.Success -> {
-                        if (result.data.isEmpty()) {
-                            Action.NewsLoadingFailure
-                        } else {
-                            Action.NewsLoadingSuccess(result.data)
-                        }
-                    }
-                    is Result.Error -> Action.NewsLoadingFailure
+            savedState.get<News>("news").also {
+                val action = when (it) {
+                    is News -> Action.NewsLoadingSuccess(it)
+                    else -> Action.NewsLoadingFailure
                 }
                 sendAction(action)
             }
@@ -42,23 +36,23 @@ internal class NewsViewModel @Inject constructor(
         is Action.NewsLoadingSuccess -> state.copy(
             isLoading = false,
             isError = false,
-            newsList = viewAction.newsList
+            news = viewAction.news
         )
         is Action.NewsLoadingFailure -> state.copy(
             isLoading = false,
             isError = true,
-            newsList = listOf()
+            news = null
         )
     }
 
     internal data class ViewState(
         val isLoading: Boolean = true,
         val isError: Boolean = false,
-        val newsList: List<News> = listOf()
+        val news: News? = null
     ) : BaseViewState
 
     internal sealed interface Action : BaseAction {
-        class NewsLoadingSuccess(val newsList: List<News>) : Action
+        class NewsLoadingSuccess(val news: News) : Action
         object NewsLoadingFailure : Action
     }
 }
