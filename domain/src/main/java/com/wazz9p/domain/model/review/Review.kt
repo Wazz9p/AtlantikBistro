@@ -5,4 +5,7 @@ data class Review(
     val phoneNumber: String?,
     val message: String,
     val adminMessage: String?
-)
+) {
+    val adminName: String
+        get() = "Администратор"
+}
