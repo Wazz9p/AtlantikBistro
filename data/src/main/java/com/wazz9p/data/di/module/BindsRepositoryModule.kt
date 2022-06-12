@@ -2,8 +2,12 @@ package com.wazz9p.data.di.module
 
 import com.wazz9p.data.repository.CategoryRepositoryImpl
 import com.wazz9p.data.repository.MenuRepositoryImpl
+import com.wazz9p.data.repository.NewsRepositoryImpl
+import com.wazz9p.data.repository.ReviewRepositoryImpl
 import com.wazz9p.domain.repository.menu.CategoryRepository
 import com.wazz9p.domain.repository.menu.MenuRepository
+import com.wazz9p.domain.repository.news.NewsRepository
+import com.wazz9p.domain.repository.review.ReviewRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,4 +22,10 @@ interface BindsRepositoryModule {
 
     @Binds
     fun bindMenuRepository(repository: MenuRepositoryImpl): MenuRepository
+
+    @Binds
+    fun bindNewsRepository(repository: NewsRepositoryImpl): NewsRepository
+
+    @Binds
+    fun bindReviewRepository(repository: ReviewRepositoryImpl): ReviewRepository
 }
