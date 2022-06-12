@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/item_view_radius"
+    app:cardCornerRadius="@dimen/card_view_radius_small"
     app:cardElevation="@dimen/item_elevation"
     app:cardUseCompatPadding="true">
 
