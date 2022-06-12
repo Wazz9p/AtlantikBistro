@@ -8,4 +8,5 @@
     <string name="news_item_title">Новости</string>
     <string name="cart_item_title">Корзина</string>
     <string name="menu_search_hint">Поиск</string>
+    <string name="send_review_hint">Оставьте свой отзыв</string>
 </resources>
