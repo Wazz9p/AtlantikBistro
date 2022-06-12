@@ -14,7 +14,7 @@ class NewsRemoteDataSource @Inject constructor(
     override suspend fun getNewsList(): List<News> {
         try {
             val response = newsApi.getNews()
-            return response.map { mapper.mapToDomain(data = it) }
+            return response.reversed().map { mapper.mapToDomain(data = it) }
         } catch (e: Exception) {
             throw e
         }
