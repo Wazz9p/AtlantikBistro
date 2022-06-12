@@ -11,11 +11,15 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.databinding.FragmentMainBinding
+import com.wazz9p.atlantikbistro.screens.main.viewModel.MainFragmentViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.disableTooltip
 import com.wazz9p.core.extension.observe
 import com.wazz9p.core.extension.visible
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -50,5 +54,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding.mainBottomNavigationView.background = null
         binding.mainBottomNavigationView.setOnItemReselectedListener { }
         binding.mainBottomNavigationView.disableTooltip()
+        binding.fabAddToCart.setOnClickListener {
+            navigateToCart(navController)
+        }
+    }
+
+    private fun navigateToCart(navController: NavController) {
+        MainScope().launch {
+            binding.fabAddToCart.isClickable = false
+            delay(180)
+            binding.fabAddToCart.isClickable = true
+            navController.navigate(R.id.nav_graph_cart)
+        }
     }
 }
