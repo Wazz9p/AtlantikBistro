@@ -19,7 +19,7 @@ import com.wazz9p.domain.model.review.Review
         NewsEntity::class,
         ReviewEntity::class
     ],
-    version = 3, exportSchema = false
+    version = 4, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun categories(): CategoryDao
