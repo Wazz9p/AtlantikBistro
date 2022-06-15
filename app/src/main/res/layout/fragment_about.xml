@@ -19,36 +19,25 @@
             android:layout_marginBottom="16dp"
             android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/aboutLogoContainer"
+
+            <TextView
+                android:id="@+id/aboutTextView"
+                android:text="@string/about_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="64dp"
-                app:cardCornerRadius="20dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/aboutImageView"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="H,16:9"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="ContentDescription" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textStyle="bold" />
 
 
+            <TextView
+                android:id="@+id/aboutHallTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/hall_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
@@ -56,13 +45,23 @@
                 android:layout_margin="8dp" />
 
             <TextView
-                android:id="@+id/aboutTextView"
+                android:id="@+id/addressTextView"
+                android:text="@string/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:gravity="center"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/phoneNumberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/org_phone_number"
+                android:layout_marginTop="8dp"
+                android:autoLink="phone"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/aboutCollabImageContainer"
@@ -79,6 +78,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/about"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintDimensionRatio="H,3:4"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -103,6 +103,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/about2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintDimensionRatio="H,3:4"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -118,38 +119,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp" />
 
-            <TextView
-                android:id="@+id/aboutHallTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp" />
-
-
-            <TextView
-                android:id="@+id/addressTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/phoneNumberTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="?actionBarSize"
-                android:autoLink="phone"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
 
         </LinearLayout>
