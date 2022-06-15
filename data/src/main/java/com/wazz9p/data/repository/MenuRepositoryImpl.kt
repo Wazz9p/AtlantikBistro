@@ -8,18 +8,16 @@ import java.net.UnknownHostException
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class MenuRepositoryImpl @Inject constructor(
     private val localDataSource: MenuRoomDataSource,
     private val remoteDataSource: MenuRemoteDataSource
 ) : MenuRepository {
-
     override suspend fun getMenu(categoryId: Int): List<Dish> {
         return try {
             val response = remoteDataSource.getMenu(categoryId)
             localDataSource.saveMenu(response)
             response
-        } catch (e: UnknownHostException) {
+        } catch (e: Exception) {
             localDataSource.getMenu(categoryId)
         }
     }

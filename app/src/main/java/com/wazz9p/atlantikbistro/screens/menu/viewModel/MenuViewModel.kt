@@ -6,6 +6,7 @@ import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
 import com.wazz9p.core.base.Result
 import com.wazz9p.domain.model.menu.Dish
+import com.wazz9p.domain.usecase.cart.AddDish
 import com.wazz9p.domain.usecase.menu.FetchMenu
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class MenuViewModel @Inject constructor(
-    private val fetchMenuUseCase: FetchMenu
+    private val fetchMenuUseCase: FetchMenu,
+    private val addDish: AddDish
 ) : BaseViewModel<MenuViewModel.ViewState, MenuViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {

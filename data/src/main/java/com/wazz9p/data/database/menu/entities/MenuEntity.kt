@@ -10,7 +10,7 @@ data class MenuEntity(
     val name: String,
     val imageRef: String?,
     val weight: String?,
-    val price: String,
+    val price: String?,
     val description: String?,
     val categoryId: Int
 )

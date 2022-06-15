@@ -19,7 +19,7 @@ class CategoryRepositoryImpl @Inject constructor(
             val response = remoteDataSource.getCategories()
             localDataSource.saveCategories(response)
             response
-        } catch (e: UnknownHostException) {
+        } catch (e: Exception) {
             localDataSource.getCategories()
         }
     }

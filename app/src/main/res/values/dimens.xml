@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="search_view_radius">20dp</dimen>
-    <dimen name="item_view_radius">10dp</dimen>
+    <dimen name="card_view_radius_normal">20dp</dimen>
+    <dimen name="card_view_radius_small">10dp</dimen>
     <dimen name="button_container_radius">15dp</dimen>
     <dimen name="margin_normal">16dp</dimen>
     <dimen name="margin_small">8dp</dimen>
@@ -10,4 +10,6 @@
     <dimen name="text_size_large">24sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
     <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="item_elevation">3dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
 </resources>

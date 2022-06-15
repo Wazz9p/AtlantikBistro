@@ -30,4 +30,16 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideMenuDao(db: AppDatabase) = db.menu()
+
+    @Singleton
+    @Provides
+    fun provideNewsDao(db: AppDatabase) = db.news()
+
+    @Singleton
+    @Provides
+    fun provideReviewDao(db: AppDatabase) = db.reviews()
+
+    @Singleton
+    @Provides
+    fun provideCartDao(db: AppDatabase) = db.cart()
 }

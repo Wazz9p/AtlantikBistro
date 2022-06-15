@@ -1,4 +1,4 @@
-package com.wazz9p.atlantikbistro.screens.main
+package com.wazz9p.atlantikbistro.screens.main.viewModel
 
 import androidx.navigation.NavController
 import com.wazz9p.atlantikbistro.R
@@ -9,12 +9,16 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainFragmentViewModel @Inject constructor() :
+internal class MainFragmentViewModel @Inject constructor() :
     BaseViewModel<MainFragmentViewModel.ViewState, MainFragmentViewModel.Action>(ViewState()) {
 
     companion object {
         val FULLSCREEN_FRAGMENTS_ID: Set<Int> = setOf(
-            R.id.dishDetailFragment
+            R.id.dishDetailFragment,
+            R.id.newsDetailFragment,
+            R.id.cartFragment,
+            R.id.searchFragment,
+            R.id.reviewFragment
         )
     }
 
@@ -43,7 +47,6 @@ class MainFragmentViewModel @Inject constructor() :
     ) : BaseViewState
 
     sealed interface Action : BaseAction {
-
         object FullScreen : Action
         object NavigationScreen : Action
     }

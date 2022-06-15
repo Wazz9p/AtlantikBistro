@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CategoryViewModel @Inject constructor(private val fetchCategory: FetchCategory) :
+internal class CategoryViewModel @Inject constructor(private val fetchCategory: FetchCategory) :
     BaseViewModel<CategoryViewModel.ViewState, CategoryViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {

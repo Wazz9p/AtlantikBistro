@@ -8,4 +8,14 @@
     <string name="news_item_title">Новости</string>
     <string name="cart_item_title">Корзина</string>
     <string name="menu_search_hint">Поиск</string>
+    <string name="menu_title">Меню</string>
+    <string name="send_review_hint">Оставьте свой отзыв</string>
+    <string name="send_review_name_hint">Имя</string>
+    <string name="send_review_phone_hint">Номер телефона</string>
+    <string name="cart">Корзина</string>
+    <string name="about_text">Нам под силу торжество любого формата! Приглашаем вас отметить день рождения, юбилей, корпоратив, свадьбу или любое другое важное событие вместе с нами!</string>
+    <string name="schedule">График: пн – пт 12.30 – 18.00 сб – вс выходной</string>
+    <string name="org_phone_number">Телефон: +375292445349</string>
+    <string name="greetings">Бистро «Обед-буфет» - это место, где вас всегда встретят с теплой улыбкой и угостят по-домашнему вкусными блюдами.</string>
+    <string name="send_cart_hint">Сделать заказ</string>
 </resources>

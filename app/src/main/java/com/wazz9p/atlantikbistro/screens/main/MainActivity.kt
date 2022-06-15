@@ -1,7 +1,8 @@
-package com.wazz9p.atlantikbistro
+package com.wazz9p.atlantikbistro.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.wazz9p.atlantikbistro.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

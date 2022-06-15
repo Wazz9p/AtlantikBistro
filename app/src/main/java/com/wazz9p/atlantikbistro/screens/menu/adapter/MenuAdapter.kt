@@ -8,9 +8,10 @@ import com.wazz9p.atlantikbistro.databinding.ItemMenuListBinding
 import com.wazz9p.core.delegate.observer
 import com.wazz9p.core.extension.setOnDebouncedClickListener
 import com.wazz9p.domain.model.menu.Dish
+import javax.inject.Inject
 
 
-class MenuAdapter : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
+internal class MenuAdapter @Inject constructor() : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
     var menu: List<Dish> by observer(listOf()) {
         notifyDataSetChanged()
@@ -50,11 +51,10 @@ class MenuAdapter : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
 
         fun bind(dish: Dish) {
-            val dishPrice = dish.price + " р"
             itemView.setOnDebouncedClickListener { onDebouncedClickListener?.invoke(dish) }
             binding.dishNameItemTextView.text = dish.name
             url = dish.image
-            binding.dishPriceItemTextView.text = dishPrice
+            binding.dishPriceItemTextView.text = dish.priceTag
             binding.dishDescriptionItemTextView.text = dish.weight
         }
 

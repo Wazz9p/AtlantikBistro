@@ -13,9 +13,12 @@ import com.wazz9p.atlantikbistro.screens.menu.adapter.MenuAdapter
 import com.wazz9p.atlantikbistro.screens.menu.viewModel.MenuViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.observe
+import com.wazz9p.core.extension.visible
+import com.wazz9p.domain.model.menu.Dish
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MenuFragment : Fragment(R.layout.fragment_menu) {
@@ -27,14 +30,15 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private val binding: FragmentMenuBinding by viewBinding()
     private val viewModel: MenuViewModel by viewModels()
 
+    @Inject
+    internal lateinit var adapter: MenuAdapter
+
     private val stateObserver = Observer<MenuViewModel.ViewState> {
-        adapter?.menu = it.menu
+        adapter.menu = it.menu
         binding.menuSwipeLayout.isRefreshing = it.isLoading
     }
 
-    private var adapter: MenuAdapter? = null
     private var currentCategory: Int = 1
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,26 +49,19 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             currentCategory = getInt(ARG_OBJECT)
         }
 
-        setupAdapter()
-        setupRefreshAdapter()
-
         observe(viewModel.stateLiveData, stateObserver)
         viewModel.getCategory(currentCategory)
         viewModel.loadData()
+
+        setupAdapter()
+        setupRefreshAdapter()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        adapter = null
-    }
 
     private fun setupAdapter() {
-        adapter = MenuAdapter()
-        adapter?.setOnDebouncedClickListener {
+        adapter.setOnDebouncedClickListener {
             findNavController().navigate(
-                CategoryFragmentDirections.actionCategoryFragmentToDishDetailFragment(
-                    it.id
-                )
+                CategoryFragmentDirections.actionCategoryFragmentToDishDetailFragment(it)
             )
         }
         binding.menuRecyclerView.adapter = adapter
@@ -72,8 +69,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
 
     private fun setupRefreshAdapter() {
         binding.menuSwipeLayout.setOnRefreshListener {
-
-            adapter?.menu = listOf()
+            adapter.menu = listOf()
             MainScope().launch {
                 viewModel.loadData()
             }

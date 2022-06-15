@@ -16,7 +16,7 @@ class MenuRemoteDataSource @Inject constructor(
         try {
             val data = menuApi.getMenu(categoryId)
             return data.map { mapper.mapToDomain(data = it) }
-        } catch (e: UnknownHostException) {
+        } catch (e: Exception) {
             throw e
         }
     }

@@ -6,7 +6,7 @@ data class MenuResponse(
     @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
     @SerializedName("weight") val weight: String?,
-    @SerializedName("price") val price: String,
+    @SerializedName("price") val price: String?,
     @SerializedName("imageRef") val imageRef: String?,
     @SerializedName("description") val description: String?,
     @SerializedName("categoryId") val categoryId: Int
