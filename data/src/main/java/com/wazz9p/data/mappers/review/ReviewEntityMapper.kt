@@ -6,6 +6,7 @@ import com.wazz9p.domain.model.review.Review
 
 class ReviewEntityMapper : Mapper<ReviewEntity, Review> {
     override fun mapToDomain(data: ReviewEntity): Review = Review(
+        id = data.id,
         name = data.userName,
         phoneNumber = data.phoneNumber,
         message = data.message,
@@ -13,6 +14,7 @@ class ReviewEntityMapper : Mapper<ReviewEntity, Review> {
     )
 
     override fun mapToData(data: Review): ReviewEntity = ReviewEntity(
+        id = data.id,
         userName = data.name,
         phoneNumber = data.phoneNumber,
         message = data.message,

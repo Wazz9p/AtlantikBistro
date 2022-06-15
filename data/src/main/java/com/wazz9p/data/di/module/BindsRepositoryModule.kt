@@ -1,9 +1,7 @@
 package com.wazz9p.data.di.module
 
-import com.wazz9p.data.repository.CategoryRepositoryImpl
-import com.wazz9p.data.repository.MenuRepositoryImpl
-import com.wazz9p.data.repository.NewsRepositoryImpl
-import com.wazz9p.data.repository.ReviewRepositoryImpl
+import com.wazz9p.data.repository.*
+import com.wazz9p.domain.repository.cart.CartRepository
 import com.wazz9p.domain.repository.menu.CategoryRepository
 import com.wazz9p.domain.repository.menu.MenuRepository
 import com.wazz9p.domain.repository.news.NewsRepository
@@ -28,4 +26,7 @@ interface BindsRepositoryModule {
 
     @Binds
     fun bindReviewRepository(repository: ReviewRepositoryImpl): ReviewRepository
+
+    @Binds
+    fun bindCartRepository(repository: CartRepositoryImpl): CartRepository
 }

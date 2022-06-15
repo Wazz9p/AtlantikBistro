@@ -22,6 +22,8 @@ class ReviewRepositoryImpl @Inject constructor(
     }
 
     override suspend fun sendReview(review: Review) {
-        TODO("Not yet implemented")
+        if (review.name.isNotEmpty() && review.phoneNumber?.isNotEmpty() == true) {
+            remoteDataSource.sendReview(data = review)
+        }
     }
 }

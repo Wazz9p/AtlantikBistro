@@ -17,6 +17,6 @@ class ReviewRoomDataSource @Inject constructor(
 
     override suspend fun getReviews(): List<Review> {
         val data = reviewDao.getReviews()
-        return data.map { mapper.mapToDomain(data = it) }
+        return data.reversed().map { mapper.mapToDomain(data = it) }
     }
 }

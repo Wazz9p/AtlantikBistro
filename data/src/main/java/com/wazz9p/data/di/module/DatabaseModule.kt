@@ -38,4 +38,8 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideReviewDao(db: AppDatabase) = db.reviews()
+
+    @Singleton
+    @Provides
+    fun provideCartDao(db: AppDatabase) = db.cart()
 }

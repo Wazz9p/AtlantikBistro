@@ -18,6 +18,6 @@ class NewsRoomDataSource @Inject constructor(
 
     override suspend fun getNewsList(): List<News> {
         val data = newsDao.getNews()
-        return data.map { mapper.mapToDomain(data = it) }
+        return data.reversed().map { mapper.mapToDomain(data = it) }
     }
 }

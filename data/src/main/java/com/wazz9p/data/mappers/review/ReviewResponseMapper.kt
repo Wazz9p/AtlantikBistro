@@ -5,11 +5,13 @@ import com.wazz9p.data.network.review.response.ReviewResponse
 import com.wazz9p.domain.model.review.Review
 
 class ReviewResponseMapper : Mapper<ReviewResponse, Review> {
-    override fun mapToDomain(data: ReviewResponse): Review {
-        TODO("Not yet implemented")
-    }
+    override fun mapToDomain(data: ReviewResponse): Review = Review(
+        id = data.id,
+        name = data.name,
+        phoneNumber = null,
+        message = data.message,
+        adminMessage = data.adminMessage
+    )
 
-    override fun mapToData(data: Review): ReviewResponse? {
-        TODO("Not yet implemented")
-    }
+    override fun mapToData(data: Review): ReviewResponse? = null
 }

@@ -11,7 +11,7 @@ class InsertReview @Inject constructor(
 ) {
     suspend fun execute(review: Review) = try {
         Result.Success(reviewRepository.sendReview(review))
-    } catch (e: IOException) {
+    } catch (e: Exception) {
         Result.Error(e)
     }
 }

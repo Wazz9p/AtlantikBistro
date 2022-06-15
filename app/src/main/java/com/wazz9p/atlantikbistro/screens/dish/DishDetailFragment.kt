@@ -19,7 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DishDetailFragment : Fragment(R.layout.fragment_dish_detail) {
 
-
     private val binding: FragmentDishDetailBinding by viewBinding()
     private val viewModel: DishDetailViewModel by viewModels()
 
@@ -57,6 +56,7 @@ class DishDetailFragment : Fragment(R.layout.fragment_dish_detail) {
 
     private fun setupAddButton() {
         binding.containerAddButton.setOnClickListener {
+            viewModel.stateLiveData.value?.dish?.let { dish -> viewModel.addDish(dish) }
             findNavController().popBackStack()
         }
     }

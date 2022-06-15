@@ -1,5 +1,7 @@
 package com.wazz9p.data.di.module
 
+import com.wazz9p.data.database.cart.CartLocalDataSource
+import com.wazz9p.data.database.cart.localDataSourceImpl.CartRoomDataSource
 import com.wazz9p.data.database.menu.CategoryLocalDataSource
 import com.wazz9p.data.database.menu.MenuLocalDataSource
 import com.wazz9p.data.database.menu.localDataSourceImpl.CategoryRoomDataSource
@@ -28,4 +30,7 @@ interface BindsDataSourceModule {
 
     @Binds
     fun bindsReviewLocalDataSource(roomDataSource: ReviewRoomDataSource): ReviewLocalDataSource
+
+    @Binds
+    fun binsCartLocalDataSource(roomDataSource: CartRoomDataSource): CartLocalDataSource
 }

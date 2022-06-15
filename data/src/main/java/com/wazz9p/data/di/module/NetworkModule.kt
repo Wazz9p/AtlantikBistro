@@ -2,6 +2,7 @@ package com.wazz9p.data.di.module
 
 import com.google.gson.GsonBuilder
 import com.wazz9p.data.mappers.menu.CategoryResponseMapper
+import com.wazz9p.data.network.cart.api.CartService
 import com.wazz9p.data.network.menu.api.CategoryService
 import com.wazz9p.data.network.menu.api.MenuService
 import com.wazz9p.data.network.news.api.NewsService
@@ -53,4 +54,9 @@ class NetworkModule {
     @Provides
     fun provideNewsService(retrofit: Retrofit): NewsService =
         retrofit.create(NewsService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideCartService(retrofit: Retrofit): CartService =
+        retrofit.create(CartService::class.java)
 }

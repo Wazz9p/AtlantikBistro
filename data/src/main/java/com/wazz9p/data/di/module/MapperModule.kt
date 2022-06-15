@@ -1,5 +1,7 @@
 package com.wazz9p.data.di.module
 
+import com.wazz9p.data.mappers.cart.CartEntityMapper
+import com.wazz9p.data.mappers.cart.CartResponseMapper
 import com.wazz9p.data.mappers.menu.CategoryEntityMapper
 import com.wazz9p.data.mappers.menu.CategoryResponseMapper
 import com.wazz9p.data.mappers.menu.MenuEntityMapper
@@ -8,6 +10,7 @@ import com.wazz9p.data.mappers.news.NewsEntityMapper
 import com.wazz9p.data.mappers.news.NewsResponseMapper
 import com.wazz9p.data.mappers.review.ReviewEntityMapper
 import com.wazz9p.data.mappers.review.ReviewResponseMapper
+import com.wazz9p.data.mappers.review.SendReviewMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,4 +43,13 @@ class MapperModule {
 
     @Provides
     fun provideReviewResponseMapper(): ReviewResponseMapper = ReviewResponseMapper()
+
+    @Provides
+    fun provideSendReviewMapper(): SendReviewMapper = SendReviewMapper()
+
+    @Provides
+    fun provideCartEntityMapper(): CartEntityMapper = CartEntityMapper()
+
+    @Provides
+    fun provideCartResponseMapper(): CartResponseMapper = CartResponseMapper()
 }

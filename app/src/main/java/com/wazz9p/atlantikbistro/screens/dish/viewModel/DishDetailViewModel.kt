@@ -6,12 +6,14 @@ import com.wazz9p.core.base.BaseAction
 import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
 import com.wazz9p.domain.model.menu.Dish
+import com.wazz9p.domain.usecase.cart.AddDish
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 internal class DishDetailViewModel @Inject constructor(
+    private val addDish: AddDish,
     private val savedState: SavedStateHandle
 ) : BaseViewModel<DishDetailViewModel.ViewState, DishDetailViewModel.Action>(ViewState()) {
 
@@ -28,6 +30,12 @@ internal class DishDetailViewModel @Inject constructor(
                 }
                 sendAction(action)
             }
+        }
+    }
+
+    fun addDish(dish: Dish) {
+        viewModelScope.launch {
+            addDish.execute(dish)
         }
     }
 

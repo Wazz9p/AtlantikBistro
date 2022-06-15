@@ -13,6 +13,7 @@ import com.wazz9p.atlantikbistro.screens.menu.adapter.MenuAdapter
 import com.wazz9p.atlantikbistro.screens.menu.viewModel.MenuViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.observe
+import com.wazz9p.core.extension.visible
 import com.wazz9p.domain.model.menu.Dish
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.MainScope
@@ -37,9 +38,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding.menuSwipeLayout.isRefreshing = it.isLoading
     }
 
-
     private var currentCategory: Int = 1
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

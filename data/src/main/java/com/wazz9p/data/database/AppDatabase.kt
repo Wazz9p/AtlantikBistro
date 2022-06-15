@@ -2,6 +2,8 @@ package com.wazz9p.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.wazz9p.data.database.cart.dao.CartDao
+import com.wazz9p.data.database.cart.entity.CartEntity
 import com.wazz9p.data.database.menu.dao.CategoryDao
 import com.wazz9p.data.database.menu.dao.MenuDao
 import com.wazz9p.data.database.menu.entities.CategoryEntity
@@ -17,9 +19,10 @@ import com.wazz9p.domain.model.review.Review
         CategoryEntity::class,
         MenuEntity::class,
         NewsEntity::class,
-        ReviewEntity::class
+        ReviewEntity::class,
+        CartEntity::class
     ],
-    version = 4, exportSchema = false
+    version = 5, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun categories(): CategoryDao
@@ -29,4 +32,6 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun news(): NewsDao
 
     abstract fun reviews(): ReviewDao
+
+    abstract fun cart(): CartDao
 }

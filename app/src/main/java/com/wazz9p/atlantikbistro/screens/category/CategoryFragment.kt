@@ -39,7 +39,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
         observe(viewModel.stateLiveData, stateObserver)
         viewModel.loadData()
 
-        setupSearch()
+//       setupSearch()
         setupAdapter()
         initTabs()
     }
@@ -59,9 +59,9 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
         binding.categoryTabLayout.disableTooltip()
     }
 
-    private fun setupSearch() {
-        binding.categorySearchContainer.setOnClickListener {
-            findNavController().navigate(CategoryFragmentDirections.actionCategoryFragmentToSearchFragment())
-        }
-    }
+//    private fun setupSearch() {
+//        binding.categorySearchContainer.setOnClickListener {
+//            findNavController().navigate(CategoryFragmentDirections.actionCategoryFragmentToSearchFragment())
+//        }
+//    }
 }

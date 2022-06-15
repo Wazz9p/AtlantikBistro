@@ -4,5 +4,4 @@ import com.wazz9p.domain.model.review.Review
 
 interface ReviewDataSource {
     suspend fun getReviews(): List<Review>
-
 }
