@@ -1,15 +1,13 @@
 package com.wazz9p.data.repository
 
-import com.wazz9p.data.database.menu.localDataSourceImpl.MenuRoomDataSource
+import com.wazz9p.data.database.menu.MenuLocalDataSource
 import com.wazz9p.data.network.menu.MenuRemoteDataSource
 import com.wazz9p.domain.model.menu.Dish
 import com.wazz9p.domain.repository.menu.MenuRepository
-import java.net.UnknownHostException
 import javax.inject.Inject
-import javax.inject.Singleton
 
 class MenuRepositoryImpl @Inject constructor(
-    private val localDataSource: MenuRoomDataSource,
+    private val localDataSource: MenuLocalDataSource,
     private val remoteDataSource: MenuRemoteDataSource
 ) : MenuRepository {
     override suspend fun getMenu(categoryId: Int): List<Dish> {

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.databinding.ItemNewsListBinding
 import com.wazz9p.core.delegate.observer
 import com.wazz9p.core.extension.setOnDebouncedClickListener
@@ -54,15 +55,14 @@ internal class NewsAdapter @Inject constructor(): RecyclerView.Adapter<NewsAdapt
 
         private fun setDefaultImage() {
             Glide.with(itemView.context)
-                .load("https://c.tenor.com/NkAegm0IP8IAAAAC/popcat.gif")
-                .fitCenter()
+                .load(R.drawable.error_image)
                 .into(binding.newsItemImage)
         }
 
         private fun setImage(url: String) {
             Glide.with(itemView.context)
                 .load(url)
-                .fitCenter()
+                .error(R.drawable.error_image)
                 .into(binding.newsItemImage)
         }
     }

@@ -5,6 +5,7 @@ import com.wazz9p.data.mappers.menu.MenuResponseMapper
 import com.wazz9p.data.network.menu.api.MenuService
 import com.wazz9p.domain.model.menu.Dish
 import java.net.UnknownHostException
+import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class MenuRemoteDataSource @Inject constructor(
@@ -21,6 +22,16 @@ class MenuRemoteDataSource @Inject constructor(
         }
     }
 
+    override suspend fun getDish(dishId: Int): Dish {
+        TODO("Not yet implemented")
+    }
 
-    override suspend fun getDish(dishId: Int): Dish? = null
+    suspend fun getAllDishes(): List<Dish> {
+        try {
+            val data = menuApi.getAllDishes()
+            return data.map { mapper.mapToDomain(data = it) }
+        } catch (e: Exception) {
+            throw e
+        }
+    }
 }

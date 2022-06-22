@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.databinding.ItemMenuListBinding
 import com.wazz9p.core.delegate.observer
 import com.wazz9p.core.extension.setOnDebouncedClickListener
@@ -60,7 +61,7 @@ internal class MenuAdapter @Inject constructor() : RecyclerView.Adapter<MenuAdap
 
         private fun setDefaultImage() {
             Glide.with(itemView.context)
-                .load("https://i.pinimg.com/originals/94/ee/2f/94ee2fda4931c26b3c55ed23d28e885e.png")
+                .load(R.drawable.error_image)
                 .fitCenter()
                 .into(binding.dishItemImageView)
         }
@@ -69,6 +70,7 @@ internal class MenuAdapter @Inject constructor() : RecyclerView.Adapter<MenuAdap
             Glide.with(itemView.context)
                 .load(url)
                 .fitCenter()
+                .error(R.drawable.error_image)
                 .into(binding.dishItemImageView)
         }
     }

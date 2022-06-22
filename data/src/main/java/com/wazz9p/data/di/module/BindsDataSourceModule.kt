@@ -10,6 +10,10 @@ import com.wazz9p.data.database.news.NewsLocalDataSource
 import com.wazz9p.data.database.news.localDataSourceImpl.NewsRoomDataSource
 import com.wazz9p.data.database.review.ReviewLocalDataSource
 import com.wazz9p.data.database.review.localDataSourceImpl.ReviewRoomDataSource
+import com.wazz9p.data.network.cart.CartRemoteDataSource
+import com.wazz9p.data.network.cart.CartRetrofitDataSource
+import com.wazz9p.data.network.review.ReviewRemoteDataSource
+import com.wazz9p.data.network.review.remoteDataSourceImpl.ReviewRetrofitDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -32,5 +36,11 @@ interface BindsDataSourceModule {
     fun bindsReviewLocalDataSource(roomDataSource: ReviewRoomDataSource): ReviewLocalDataSource
 
     @Binds
+    fun bindReviewRemoteDataSource(retrofitDataSource: ReviewRetrofitDataSource): ReviewRemoteDataSource
+
+    @Binds
     fun binsCartLocalDataSource(roomDataSource: CartRoomDataSource): CartLocalDataSource
+
+    @Binds
+    fun bindsCartRemoteDataSource(retrofitDataSource: CartRetrofitDataSource): CartRemoteDataSource
 }

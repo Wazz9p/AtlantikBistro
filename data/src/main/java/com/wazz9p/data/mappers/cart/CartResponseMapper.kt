@@ -1,8 +1,8 @@
 package com.wazz9p.data.mappers.cart
 
 import com.wazz9p.core.Mapper
-import com.wazz9p.data.network.cart.CartDish
-import com.wazz9p.data.network.cart.CartResponse
+import com.wazz9p.data.network.cart.response.CartDish
+import com.wazz9p.data.network.cart.response.CartResponse
 import com.wazz9p.domain.model.cart.Cart
 
 

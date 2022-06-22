@@ -1,6 +1,6 @@
 package com.wazz9p.data.network.cart.api
 
-import com.wazz9p.data.network.cart.CartResponse
+import com.wazz9p.data.network.cart.response.CartResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 

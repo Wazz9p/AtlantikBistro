@@ -6,5 +6,5 @@ interface MenuDataSource {
 
     suspend fun getMenu(categoryId: Int): List<Dish>
 
-    suspend fun getDish(dishId: Int): Dish?
+    suspend fun getDish(dishId: Int): Dish
 }

@@ -69,7 +69,17 @@ internal class CartViewModel @Inject constructor(
             menu = menu
         )
         viewModelScope.launch {
-            sendCart.execute(cart)
+            sendCart.execute(cart).also { result ->
+                val action = when (result) {
+                    is Result.Success -> {
+                        Action.CartEmpty
+                    }
+                    else -> {
+                        Action.CartLoadingSuccess(state.cart)
+                    }
+                }
+                sendAction(action)
+            }
         }
     }
 

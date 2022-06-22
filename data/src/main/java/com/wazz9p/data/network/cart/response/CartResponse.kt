@@ -1,4 +1,4 @@
-package com.wazz9p.data.network.cart
+package com.wazz9p.data.network.cart.response
 
 import com.google.gson.annotations.SerializedName
 

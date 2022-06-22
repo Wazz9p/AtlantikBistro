@@ -64,8 +64,7 @@ class DishDetailFragment : Fragment(R.layout.fragment_dish_detail) {
     private fun setDefaultImage() {
         context?.let {
             Glide.with(it)
-                .load("https://i.pinimg.com/originals/94/ee/2f/94ee2fda4931c26b3c55ed23d28e885e.png")
-                .fitCenter()
+                .load(R.drawable.error_image)
                 .into(binding.dishDetailImage)
         }
     }
@@ -74,7 +73,7 @@ class DishDetailFragment : Fragment(R.layout.fragment_dish_detail) {
         context?.let {
             Glide.with(it)
                 .load(url)
-                .fitCenter()
+                .error(R.drawable.error_image)
                 .into(binding.dishDetailImage)
         }
     }

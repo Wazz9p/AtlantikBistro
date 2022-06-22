@@ -1,7 +1,7 @@
 package com.wazz9p.data.repository
 
 import com.wazz9p.data.database.cart.CartLocalDataSource
-import com.wazz9p.data.network.cart.CartRetrofitDataSource
+import com.wazz9p.data.network.cart.CartRemoteDataSource
 import com.wazz9p.domain.model.cart.Cart
 import com.wazz9p.domain.model.menu.Dish
 import com.wazz9p.domain.repository.cart.CartRepository
@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class CartRepositoryImpl @Inject constructor(
     private val localDataSource: CartLocalDataSource,
-    private val remoteDataSource: CartRetrofitDataSource
+    private val remoteDataSource: CartRemoteDataSource
 ) : CartRepository {
     override suspend fun getCartDishList(): List<Dish> = localDataSource.getCart()
 

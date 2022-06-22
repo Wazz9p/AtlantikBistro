@@ -15,7 +15,6 @@ import javax.inject.Inject
 @HiltViewModel
 internal class MenuViewModel @Inject constructor(
     private val fetchMenuUseCase: FetchMenu,
-    private val addDish: AddDish
 ) : BaseViewModel<MenuViewModel.ViewState, MenuViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {

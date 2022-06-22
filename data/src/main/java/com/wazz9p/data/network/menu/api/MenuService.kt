@@ -7,4 +7,7 @@ import retrofit2.http.Path
 interface MenuService {
     @GET("/dishes/{id}")
     suspend fun getMenu(@Path("id") categoryId: Int): List<MenuResponse>
+
+    @GET("/dishes")
+    suspend fun getAllDishes(): List<MenuResponse>
 }

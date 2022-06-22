@@ -36,6 +36,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private val stateObserver = Observer<MenuViewModel.ViewState> {
         adapter.menu = it.menu
         binding.menuSwipeLayout.isRefreshing = it.isLoading
+        binding.errorImageContainer.visible = it.isError
     }
 
     private var currentCategory: Int = 1
