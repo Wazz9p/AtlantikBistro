@@ -17,6 +17,10 @@ class CartRepositoryImpl @Inject constructor(
         localDataSource.saveCart(dish)
     }
 
+    override suspend fun deleteDish(dish: Dish) {
+        localDataSource.deleteDish(dish = dish)
+    }
+
     override suspend fun clearCart() {
         localDataSource.clearCart()
     }

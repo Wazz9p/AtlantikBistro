@@ -35,6 +35,8 @@ internal class CartAdapter @Inject constructor() : RecyclerView.Adapter<CartAdap
 
     override fun getItemCount(): Int = cart.size
 
+    fun getDish(position: Int): Dish = cart[position]
+
     internal inner class ViewHolder(private val binding: ItemCartListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

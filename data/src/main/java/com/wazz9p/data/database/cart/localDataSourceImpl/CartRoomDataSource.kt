@@ -22,9 +22,11 @@ class CartRoomDataSource @Inject constructor(
         }
     }
 
+    override suspend fun deleteDish(dish: Dish) {
+        cartDao.deleteDish(dishId = dish.id)
+    }
+
     override suspend fun clearCart() {
         cartDao.deleteCart()
     }
-
-
 }

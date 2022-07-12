@@ -1,7 +1,6 @@
 package com.wazz9p.atlantikbistro.screens.cart.viewModel
 
 import androidx.lifecycle.viewModelScope
-import com.wazz9p.atlantikbistro.screens.news.newsList.viewModel.NewsViewModel
 import com.wazz9p.core.base.BaseAction
 import com.wazz9p.core.base.BaseViewModel
 import com.wazz9p.core.base.BaseViewState
@@ -10,6 +9,7 @@ import com.wazz9p.domain.model.cart.Cart
 import com.wazz9p.domain.model.menu.Dish
 import com.wazz9p.domain.model.menu.toCartDish
 import com.wazz9p.domain.usecase.cart.ClearCart
+import com.wazz9p.domain.usecase.cart.DeleteDish
 import com.wazz9p.domain.usecase.cart.FetchCart
 import com.wazz9p.domain.usecase.cart.SendCart
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +20,8 @@ import javax.inject.Inject
 internal class CartViewModel @Inject constructor(
     private val fetchCart: FetchCart,
     private val sendCart: SendCart,
-    private val clearCart: ClearCart
+    private val clearCart: ClearCart,
+    private val deleteDish: DeleteDish
 ) : BaseViewModel<CartViewModel.ViewState, CartViewModel.Action>(ViewState()) {
 
     override fun onLoadData() {
@@ -58,6 +59,13 @@ internal class CartViewModel @Inject constructor(
                 }
                 sendAction(action)
             }
+        }
+    }
+
+    fun deleteDish(dish: Dish){
+        viewModelScope.launch {
+            deleteDish.execute(dish)
+            getCart()
         }
     }
 

@@ -8,5 +8,7 @@ interface CartLocalDataSource : CartDataSource {
 
     suspend fun saveCart(dish: Dish)
 
+    suspend fun deleteDish(dish: Dish)
+
     suspend fun clearCart()
 }

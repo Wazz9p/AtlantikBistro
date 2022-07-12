@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.wazz9p.atlantikbistro.R
 import com.wazz9p.atlantikbistro.databinding.FragmentCartBinding
 import com.wazz9p.atlantikbistro.screens.cart.adapter.CartAdapter
+import com.wazz9p.atlantikbistro.screens.cart.adapter.CartSwipeGesture
 import com.wazz9p.atlantikbistro.screens.cart.viewModel.CartViewModel
 import com.wazz9p.core.delegate.viewBinding
 import com.wazz9p.core.extension.observe
@@ -33,6 +36,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     @Inject
     internal lateinit var adapter: CartAdapter
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -40,9 +44,11 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         viewModel.loadData()
 
         context?.let { setupAlert(it) }
+
         setupExitButton()
         setupClearButton()
         setupAdapter()
+
     }
 
     private fun setupExitButton() {
@@ -80,5 +86,12 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private fun setupAdapter() {
         binding.cartRecyclerView.adapter = adapter
+        val swipeGesture = object : CartSwipeGesture(context!!) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                viewModel.deleteDish(adapter.getDish(viewHolder.adapterPosition))
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeGesture)
+        itemTouchHelper.attachToRecyclerView(binding.cartRecyclerView)
     }
 }
